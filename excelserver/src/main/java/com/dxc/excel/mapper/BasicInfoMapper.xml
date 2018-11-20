@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dxc.excel.mapper.BasicInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dxc.excel.model.BasicInfo" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="party_member_name" property="partyMemberName" jdbcType="VARCHAR" />
+    <result column="party_member_sex" property="partyMemberSex" jdbcType="INTEGER" />
+    <result column="party_member_category" property="partyMemberCategory" jdbcType="INTEGER" />
+    <result column="party_member_idcard" property="partyMemberIdcard" jdbcType="VARCHAR" />
+    <result column="party_member_company" property="partyMemberCompany" jdbcType="VARCHAR" />
+    <result column="party_member_number" property="partyMemberNumber" jdbcType="VARCHAR" />
+    <result column="party_member_mail" property="partyMemberMail" jdbcType="VARCHAR" />
+    <result column="party_member_backup_mail" property="partyMemberBackupMail" jdbcType="VARCHAR" />
+    <result column="party_member_join_date" property="partyMemberJoinDate" jdbcType="DATE" />
+    <result column="party_member_change_date" property="partyMemberChangeDate" jdbcType="DATE" />
+    <result column="party_member_attach" property="partyMemberAttach" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.dxc.excel.model.BasicInfo" >
+    insert into basic_info (id, party_member_name, party_member_sex, 
+      party_member_category, party_member_idcard, 
+      party_member_company, party_member_number, 
+      party_member_mail, party_member_backup_mail, 
+      party_member_join_date, party_member_change_date, party_member_attach
+      )
+    values (#{id,jdbcType=INTEGER}, #{partyMemberName,jdbcType=VARCHAR}, #{partyMemberSex,jdbcType=INTEGER}, 
+      #{partyMemberCategory,jdbcType=INTEGER}, #{partyMemberIdcard,jdbcType=VARCHAR}, 
+      #{partyMemberCompany,jdbcType=VARCHAR}, #{partyMemberNumber,jdbcType=VARCHAR}, 
+      #{partyMemberMail,jdbcType=VARCHAR}, #{partyMemberBackupMail,jdbcType=VARCHAR}, 
+      #{partyMemberJoinDate,jdbcType=DATE}, #{partyMemberChangeDate,jdbcType=DATE}, #{partyMemberAttach,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dxc.excel.model.BasicInfo" >
+    insert into basic_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="partyMemberName != null" >
+        party_member_name,
+      </if>
+      <if test="partyMemberSex != null" >
+        party_member_sex,
+      </if>
+      <if test="partyMemberCategory != null" >
+        party_member_category,
+      </if>
+      <if test="partyMemberIdcard != null" >
+        party_member_idcard,
+      </if>
+      <if test="partyMemberCompany != null" >
+        party_member_company,
+      </if>
+      <if test="partyMemberNumber != null" >
+        party_member_number,
+      </if>
+      <if test="partyMemberMail != null" >
+        party_member_mail,
+      </if>
+      <if test="partyMemberBackupMail != null" >
+        party_member_backup_mail,
+      </if>
+      <if test="partyMemberJoinDate != null" >
+        party_member_join_date,
+      </if>
+      <if test="partyMemberChangeDate != null" >
+        party_member_change_date,
+      </if>
+      <if test="partyMemberAttach != null" >
+        party_member_attach,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partyMemberName != null" >
+        #{partyMemberName,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberSex != null" >
+        #{partyMemberSex,jdbcType=INTEGER},
+      </if>
+      <if test="partyMemberCategory != null" >
+        #{partyMemberCategory,jdbcType=INTEGER},
+      </if>
+      <if test="partyMemberIdcard != null" >
+        #{partyMemberIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberCompany != null" >
+        #{partyMemberCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberNumber != null" >
+        #{partyMemberNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberMail != null" >
+        #{partyMemberMail,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberBackupMail != null" >
+        #{partyMemberBackupMail,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberJoinDate != null" >
+        #{partyMemberJoinDate,jdbcType=DATE},
+      </if>
+      <if test="partyMemberChangeDate != null" >
+        #{partyMemberChangeDate,jdbcType=DATE},
+      </if>
+      <if test="partyMemberAttach != null" >
+        #{partyMemberAttach,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

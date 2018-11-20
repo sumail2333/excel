@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dxc.excel.mapper.CashInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dxc.excel.model.CashInfo" >
+    <result column="party_member_depart" property="partyMemberDepart" jdbcType="VARCHAR" />
+    <result column="party_member_idcard" property="partyMemberIdcard" jdbcType="VARCHAR" />
+    <result column="party_member_in_date" property="partyMemberInDate" jdbcType="DATE" />
+    <result column="party_member_out_date" property="partyMemberOutDate" jdbcType="DATE" />
+    <result column="party_member_monthly_cash" property="partyMemberMonthlyCash" jdbcType="DECIMAL" />
+    <result column="party_member_cash_date" property="partyMemberCashDate" jdbcType="DATE" />
+  </resultMap>
+  <insert id="insert" parameterType="com.dxc.excel.model.CashInfo" >
+    insert into cash_info (party_member_depart, party_member_idcard, 
+      party_member_in_date, party_member_out_date, party_member_monthly_cash, 
+      party_member_cash_date)
+    values (#{partyMemberDepart,jdbcType=VARCHAR}, #{partyMemberIdcard,jdbcType=VARCHAR}, 
+      #{partyMemberInDate,jdbcType=DATE}, #{partyMemberOutDate,jdbcType=DATE}, #{partyMemberMonthlyCash,jdbcType=DECIMAL}, 
+      #{partyMemberCashDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dxc.excel.model.CashInfo" >
+    insert into cash_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="partyMemberDepart != null" >
+        party_member_depart,
+      </if>
+      <if test="partyMemberIdcard != null" >
+        party_member_idcard,
+      </if>
+      <if test="partyMemberInDate != null" >
+        party_member_in_date,
+      </if>
+      <if test="partyMemberOutDate != null" >
+        party_member_out_date,
+      </if>
+      <if test="partyMemberMonthlyCash != null" >
+        party_member_monthly_cash,
+      </if>
+      <if test="partyMemberCashDate != null" >
+        party_member_cash_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="partyMemberDepart != null" >
+        #{partyMemberDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberIdcard != null" >
+        #{partyMemberIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="partyMemberInDate != null" >
+        #{partyMemberInDate,jdbcType=DATE},
+      </if>
+      <if test="partyMemberOutDate != null" >
+        #{partyMemberOutDate,jdbcType=DATE},
+      </if>
+      <if test="partyMemberMonthlyCash != null" >
+        #{partyMemberMonthlyCash,jdbcType=DECIMAL},
+      </if>
+      <if test="partyMemberCashDate != null" >
+        #{partyMemberCashDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>
