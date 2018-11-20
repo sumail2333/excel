@@ -6,4 +6,6 @@ public interface BasicInfoMapper {
     int insert(BasicInfo record);
 
     int insertSelective(BasicInfo record);
+
+    BasicInfo getUserBasicInfoByIdCard(String idcard);
 }
