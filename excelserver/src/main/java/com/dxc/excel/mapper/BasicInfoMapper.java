@@ -1,10 +1,8 @@
 package com.dxc.excel.mapper;
 
-import com.dxc.excel.model.BasicInfo;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
 
-@Mapper
+import com.dxc.excel.model.BasicInfo;
+
 public interface BasicInfoMapper {
     int insert(BasicInfo record);
 

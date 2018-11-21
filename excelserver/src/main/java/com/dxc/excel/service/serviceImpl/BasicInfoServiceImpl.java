@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Service
+@Service("basicInfoService")
 @Transactional
 public class BasicInfoServiceImpl implements BasicInfoService {
-    @Autowired
+    @Resource
     private BasicInfoMapper basicInfoMapper;
     @Override
     public BasicInfo getUserBasicInfoByIdCard(String idcard) {

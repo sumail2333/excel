@@ -16,10 +16,10 @@ import javax.annotation.Resource;
 public class BasicInfoController {
     @Resource
     private BasicInfoService basicInfoService;
+
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public Response login(String idcard){
         BasicInfo bi = basicInfoService.getUserBasicInfoByIdCard(idcard);
-        String basicInf = new Gson().toJson(bi);
-        return ResponseData.success(basicInf);
+        return ResponseData.success(bi);
     }
 }
