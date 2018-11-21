@@ -108,8 +108,8 @@
       </if>
     </trim>
   </insert>
-  <select id="getUserBasicInfoByIdCard" parameterType="java.lang.String" resultType="com.dxc.excel.model.BasicInfo">
-      select party_member_name,party_member_sex,party_member_category,party_member_idcard,party_member_company,party_member_number,party_member_mail,party_member_backup_mail,party_member_join_date,
-      party_member_change_date,party_member_attach from basic_info where party_member_idcard=#{idcard}
+  <select id="getUserBasicInfoByIdCard" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select party_member_name,party_member_sex,party_member_category,party_member_idcard，party_member_company,party_member_number,party_member_mail,party_member_backup_mail,party_member_join_date,
+    party_member_change_date,party_member_attach from basic_info where party_member_idcard=#{idcard}
   </select>
 </mapper>
