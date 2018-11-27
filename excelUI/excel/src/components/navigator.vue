@@ -2,19 +2,16 @@
   <div class="manage_page fillcontain">
 		<el-row style="height: 100%;">
 	  		<el-col :span="4"  style="min-height: 100%; background-color: #324057;">
-				<el-menu :default-active="defaultActive" style="min-height: 100%;"  background-color="#324057" text-color="#fff" router>
-					<el-menu-item index="manage"><i class="el-icon-menu"></i>首页</el-menu-item>
+				<el-menu :span="4" :default-active="defaultActive" style="min-height: 100%;"  background-color="#324057" text-color="#fff" router>
+					<el-menu-item index="information"><i class="el-icon-menu"></i>首页</el-menu-item>
 					<el-submenu index="2">
-						<template slot="title"><i class="el-icon-document"></i>数据管理</template>
-						<el-menu-item index="userList">用户列表</el-menu-item>
-						<el-menu-item index="shopList">商家列表</el-menu-item>
-						<el-menu-item index="foodList">食品列表</el-menu-item>
-						<el-menu-item index="orderList">订单列表</el-menu-item>
-						<el-menu-item index="adminList">管理员列表</el-menu-item>
+						<template slot="title"><i class="el-icon-edit"></i>数据管理</template>
+						<el-menu-item index="userList">转出</el-menu-item>
+						<el-menu-item index="shopList">转入</el-menu-item>
 					</el-submenu>
 					<el-submenu index="3">
-						<template slot="title"><i class="el-icon-plus"></i>添加数据</template>
-						<el-menu-item index="addShop">添加商铺</el-menu-item>
+						<template slot="title"><i class="el-icon-plus"></i>咨询</template>
+						<el-menu-item index="addShop">咨询</el-menu-item>
 						<el-menu-item index="addGoods">添加商品</el-menu-item>
 					</el-submenu>
 					<el-submenu index="4">
@@ -39,6 +36,7 @@
 				</el-menu>
 			</el-col>
 			<el-col :span="20" style="height: 100%;overflow: auto;">
+				<head-top></head-top>
 				<keep-alive>
 				    <router-view></router-view>
 				</keep-alive>
@@ -47,25 +45,25 @@
   	</div>
 </template>
 <script>
-
+import headTop from "./headTop.vue";
 export default {
-  name:"navigator",
+  name: "navigator",
+  components: {
+    headTop
+  },
   data() {
-    return {
-        
-    };
+    return {};
   },
   computed: {
-			defaultActive: function(){
-				return this.$route.path.replace('/', '');
-			}
-		},
+    defaultActive: function() {
+      return this.$route.path.replace("/", "");
+    }
+  }
 };
 </script>
 
 <style lang="less" scoped>
-  @import '../style/mixin';
-	.manage_page{
-		
-	}
+@import "../style/mixin";
+.manage_page {
+}
 </style>
