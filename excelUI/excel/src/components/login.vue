@@ -51,7 +51,7 @@ export default {
           type: "success",
           message: "登录成功"
 		});
-		this.$store.commit("getPersonInfo",res.data.data);
+		localStorage.setItem("personInfo",JSON.stringify(res.data.data));
 	  }
 	  this.$router.push('navigator');
     }
